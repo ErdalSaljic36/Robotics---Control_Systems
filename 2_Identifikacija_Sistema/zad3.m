@@ -1,0 +1,10 @@
+[K,tau]=identificirajAperiodskiBlok1(NAPON, temp);
+t=t(N1:end);
+Gident=tf(K, [tau, 1]);
+y=lsim(Gident, NAPON, t) + Ta;
+plot(t, x, 'b', 'LineWidth', 2);
+hold on;
+grid on;
+plot(t, temp, 'r', 'LineWidth', 2);
+xlabel('Vrijeme [s]');
+legend('Identificirano', 'Mjereno');
