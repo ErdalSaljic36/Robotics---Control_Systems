@@ -1,29 +1,29 @@
 # Lab 1: Modeliranje LTI sistema u Simulinku
 
 ## Zadatak vježbe
-Cilj ove vježbe je upoznavanje sa Simulink okruženjem i modeliranje linearnih vremenski nepromjenljivih (LTI) sistema opisanih diferencijalnim jednačinama drugog reda.
+Primarni cilj ove vježbe je upoznavanje sa Simulink okruženjem i modeliranje linearnih vremenski nepromjenljivih (LTI) sistema opisanih diferencijalnim jednačinama drugog reda ili prenosnim funkcijama.
 
 ### Postavka sistema
-Posmatra se sistem opisan diferencijalnom jednačinom:
+U vježbi se analizira sistem opisan diferencijalnom jednačinom:
 $$\ddot{x}(t) + 2\dot{x}(t) + 5x(t) = u(t)$$
 
-Uz početne uslove:
+Uz zadate početne uslove:
 * $x(0) = 1$
 * $\dot{x}(0) = 1$
 
-### Implementacija
-U okviru vježbe realizovani su sljedeći modeli:
-1. **Modeliranje integratorskim lancima:** Direktan prikaz diferencijalne jednačine pomoću integratora, sabirača i pojačanja.
-2. **Analiza superpozicije:**
-   * **Slobodni odziv ($x_{slob}$):** Odziv sistema na početne uslove uz nultu pobudu ($u(t)=0$).
-   * **Prisilni odziv ($x_{pris}$):** Odziv sistema na vanjsku pobudu uz nulte početne uslove.
-   * **Ukupni odziv:** Verifikacija da je $x(t) = x_{slob}(t) + x_{pris}(t)$.
-
-### Pobuda
-Kao pobudni signal $u(t)$ korištena je kombinacija step signala i rampi (kako je definisano u slici 20 PDF postavke) radi testiranja dinamike sistema.
+### Ključne aktivnosti
+1. **Modeliranje integratorskim lancima:** Izgradnja modela direktno iz diferencijalne jednačine koristeći blokove `Integrator`, `Sum` i `Gain`.
+2. **Analiza superpozicije:** * Razdvajanje odziva na **slobodno kretanje** (uslijed početnih uslova) i **prisilno kretanje** (uslijed vanjske pobude).
+   * Verifikacija da je ukupni odziv suma ova dva pojedinačna odziva.
+3. **Složeni ulazni signali:** Realizacija pobude $u(t)$ koja se sastoji od kombinacije step signala i rampi sa vremenskim pomacima.
 
 ---
-## 📂 Datoteke u folderu
-* `Z1.slx`: Osnovni model diferencijalne jednačine.
-* `Z3.slx`: Model za verifikaciju principa superpozicije.
-* `Priprema_Z1.slx` - `Priprema_Z4.slx`: Pripremni modeli za laboratorijsku vježbu.
+
+## Sadržaj foldera
+
+U ovom folderu se nalaze sljedeći Simulink modeli:
+
+
+`Z1.slx` - Glavni model diferencijalne jednačine drugog reda sa zadatim početnim uslovima. |
+`Z2.slx` - Modeliranje sistema sa specifičnim pobudama (npr. delta funkcija realizovana preko impulsa ili izvoda stepa). |
+`Z3.slx` - Verifikacija principa superpozicije (istovremeno prikazivanje slobodnog, prisilnog i ukupnog odziva). |
